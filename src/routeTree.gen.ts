@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CasosRouteImport } from './routes/casos'
+import { Route as CausasRouteImport } from './routes/causas'
+import { Route as FontesRouteImport } from './routes/fontes'
+import { Route as IniciativasRouteImport } from './routes/iniciativas'
+import { Route as PropostasRouteImport } from './routes/propostas'
+import { Route as SolucoesRouteImport } from './routes/solucoes'
+import { Route as VulnerabilidadeRouteImport } from './routes/vulnerabilidade'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CasosRoute = CasosRouteImport.update({
+  id: '/casos',
+  path: '/casos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CausasRoute = CausasRouteImport.update({
+  id: '/causas',
+  path: '/causas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FontesRoute = FontesRouteImport.update({
+  id: '/fontes',
+  path: '/fontes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IniciativasRoute = IniciativasRouteImport.update({
+  id: '/iniciativas',
+  path: '/iniciativas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PropostasRoute = PropostasRouteImport.update({
+  id: '/propostas',
+  path: '/propostas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolucoesRoute = SolucoesRouteImport.update({
+  id: '/solucoes',
+  path: '/solucoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VulnerabilidadeRoute = VulnerabilidadeRouteImport.update({
+  id: '/vulnerabilidade',
+  path: '/vulnerabilidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/casos': typeof CasosRoute
+  '/causas': typeof CausasRoute
+  '/fontes': typeof FontesRoute
+  '/iniciativas': typeof IniciativasRoute
+  '/propostas': typeof PropostasRoute
+  '/solucoes': typeof SolucoesRoute
+  '/vulnerabilidade': typeof VulnerabilidadeRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/casos': typeof CasosRoute
+  '/causas': typeof CausasRoute
+  '/fontes': typeof FontesRoute
+  '/iniciativas': typeof IniciativasRoute
+  '/propostas': typeof PropostasRoute
+  '/solucoes': typeof SolucoesRoute
+  '/vulnerabilidade': typeof VulnerabilidadeRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/casos': typeof CasosRoute
+  '/causas': typeof CausasRoute
+  '/fontes': typeof FontesRoute
+  '/iniciativas': typeof IniciativasRoute
+  '/propostas': typeof PropostasRoute
+  '/solucoes': typeof SolucoesRoute
+  '/vulnerabilidade': typeof VulnerabilidadeRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/casos'
+    | '/causas'
+    | '/fontes'
+    | '/iniciativas'
+    | '/propostas'
+    | '/solucoes'
+    | '/vulnerabilidade'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/casos'
+    | '/causas'
+    | '/fontes'
+    | '/iniciativas'
+    | '/propostas'
+    | '/solucoes'
+    | '/vulnerabilidade'
+  id:
+    | '__root__'
+    | '/'
+    | '/casos'
+    | '/causas'
+    | '/fontes'
+    | '/iniciativas'
+    | '/propostas'
+    | '/solucoes'
+    | '/vulnerabilidade'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CasosRoute: typeof CasosRoute
+  CausasRoute: typeof CausasRoute
+  FontesRoute: typeof FontesRoute
+  IniciativasRoute: typeof IniciativasRoute
+  PropostasRoute: typeof PropostasRoute
+  SolucoesRoute: typeof SolucoesRoute
+  VulnerabilidadeRoute: typeof VulnerabilidadeRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/casos': {
+      id: '/casos'
+      path: '/casos'
+      fullPath: '/casos'
+      preLoaderRoute: typeof CasosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/causas': {
+      id: '/causas'
+      path: '/causas'
+      fullPath: '/causas'
+      preLoaderRoute: typeof CausasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fontes': {
+      id: '/fontes'
+      path: '/fontes'
+      fullPath: '/fontes'
+      preLoaderRoute: typeof FontesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/iniciativas': {
+      id: '/iniciativas'
+      path: '/iniciativas'
+      fullPath: '/iniciativas'
+      preLoaderRoute: typeof IniciativasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/propostas': {
+      id: '/propostas'
+      path: '/propostas'
+      fullPath: '/propostas'
+      preLoaderRoute: typeof PropostasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes': {
+      id: '/solucoes'
+      path: '/solucoes'
+      fullPath: '/solucoes'
+      preLoaderRoute: typeof SolucoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/vulnerabilidade': {
+      id: '/vulnerabilidade'
+      path: '/vulnerabilidade'
+      fullPath: '/vulnerabilidade'
+      preLoaderRoute: typeof VulnerabilidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CasosRoute: CasosRoute,
+  CausasRoute: CausasRoute,
+  FontesRoute: FontesRoute,
+  IniciativasRoute: IniciativasRoute,
+  PropostasRoute: PropostasRoute,
+  SolucoesRoute: SolucoesRoute,
+  VulnerabilidadeRoute: VulnerabilidadeRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
