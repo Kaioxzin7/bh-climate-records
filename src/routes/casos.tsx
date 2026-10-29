@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Bar, BarChart, CartesianGrid, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import chuva from "@/assets/chuva.jpg";
 import arbor from "@/assets/arborizacao.jpg";
-import { Bullets, KindTag, PageHeader, Section, SourceLink, VerifyNote, meta } from "@/components/site";
+import { Bullets, KindTag, PageHeader, Section, SourceLink, meta } from "@/components/site";
 import { SRC, marco2026, setembro2023 } from "@/lib/data";
 
 export const Route = createFileRoute("/casos")({
@@ -40,15 +40,14 @@ function Casos() {
       <Section id="jan-2020">
         <div className="grid gap-12 lg:grid-cols-2">
           <div>
-            <div className="flex gap-2"><KindTag kind="Observação meteorológica" /><KindTag kind="Impacto documentado" /></div>
+            <div className="flex flex-wrap gap-2"><KindTag kind="Observação meteorológica" /><KindTag kind="Impacto documentado" /></div>
             <h2 className="mt-4 text-3xl font-extrabold text-forest md:text-4xl">Janeiro de 2020: um episódio histórico de chuvas em Belo Horizonte</h2>
-            <p className="num mt-6 text-6xl font-extrabold text-primary">967,6 <span className="text-2xl">mm</span></p>
-            <p className="text-sm text-muted-foreground">Total mensal de chuva em janeiro de 2020 (registro do plano municipal de contingência).</p>
-            <VerifyNote>confirmar o acumulado e a estação meteorológica no plano municipal de contingência antes da publicação definitiva.</VerifyNote>
+            <p className="num mt-6 text-6xl font-extrabold text-primary">935,2 <span className="text-2xl">mm</span></p>
+            <p className="text-sm text-muted-foreground">Total mensal de chuva em janeiro de 2020 na estação meteorológica convencional do INMET em Belo Horizonte (Santo Agostinho) — o maior acumulado mensal desde a abertura da estação, em 1910. A média climatológica de janeiro é de 329,1 mm.</p>
             <h3 className="mt-8 font-bold">Impactos associados ao período</h3>
             <div className="mt-3"><Bullets items={["Alagamentos e inundações.", "Deslizamentos de terra.", "Danos a imóveis e à infraestrutura.", "Mobilização dos serviços públicos.", "Necessidade de monitoramento e prevenção de desastres."]} /></div>
             <p className="mt-6 text-sm text-muted-foreground">Chuvas extremas tendem a gerar impactos maiores em áreas com alta exposição, ocupação vulnerável, encostas suscetíveis e drenagem insuficiente.</p>
-            <div className="mt-6 flex flex-wrap gap-4"><SourceLink href={SRC.pbhPlanoEmergencial} label="PBH — plano emergencial" /><SourceLink href={SRC.pbhNotaChuvas} label="PBH — nota à imprensa" /></div>
+            <div className="mt-6 flex flex-wrap gap-4"><SourceLink href={SRC.inmetInformativo052020} label="INMET — Informativo nº 05/2020 (05/02/2020)" /><SourceLink href={SRC.pbhPlanoEmergencial} label="PBH — plano emergencial" /><SourceLink href={SRC.pbhNotaChuvas} label="PBH — nota à imprensa" /></div>
           </div>
           <figure>
             <img src={chuva} alt="Rua alagada durante chuva intensa (imagem ilustrativa)" width={1600} height={1008} loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />
@@ -61,11 +60,11 @@ function Casos() {
         <div className="max-w-3xl">
           <KindTag kind="Impacto documentado" />
           <h2 className="mt-4 text-3xl font-extrabold text-forest md:text-4xl">Vila Bernadete: os impactos humanos das chuvas intensas</h2>
-          <p className="mt-5 text-lg text-muted-foreground">Em 24 de janeiro de 2020, um deslizamento na Vila Bernadete, região do Barreiro, atingiu seis casas. No dia seguinte, a Prefeitura informou indícios de sete mortes no local.</p>
-          <VerifyNote>esses números correspondem a informações oficiais preliminares divulgadas à imprensa. Consulte registros oficiais posteriores para o balanço definitivo.</VerifyNote>
+          <p className="mt-5 text-lg text-muted-foreground">Em 24 de janeiro de 2020, um deslizamento na Vila Bernadete, região do Barreiro, atingiu cinco casas. Ao encerrar as buscas, em 26 de janeiro de 2020, o Corpo de Bombeiros Militar de Minas Gerais (CBMMG) confirmou <strong className="text-foreground">7 vítimas fatais</strong>, de duas famílias.</p>
+          <p className="mt-3 text-xs text-muted-foreground">Em 25 de janeiro, a Prefeitura havia divulgado informações preliminares; o número acima corresponde ao balanço final do CBMMG, conforme noticiado na data.</p>
           <h3 className="mt-8 font-bold">Medidas preventivas pertinentes</h3>
           <div className="mt-3"><Bullets items={["Mapeamento de áreas de risco.", "Monitoramento de encostas.", "Alertas antecipados.", "Planejamento territorial.", "Orientação e proteção de moradores."]} /></div>
-          <div className="mt-6"><SourceLink href={SRC.pbhNotaChuvas} /></div>
+          <div className="mt-6 flex flex-wrap gap-4"><SourceLink href={SRC.cbmmgVilaBernadete} label="Balanço do CBMMG (26/01/2020)" /><SourceLink href={SRC.pbhNotaChuvas} label="PBH — nota preliminar" /></div>
         </div>
       </Section>
 
@@ -79,8 +78,8 @@ function Casos() {
             <KindTag kind="Observação meteorológica" />
             <h2 className="mt-4 text-3xl font-extrabold text-forest md:text-4xl">37,5 °C: o recorde de temperatura registrado em Belo Horizonte</h2>
             <p className="mt-5 text-muted-foreground">Máxima registrada em 25 de setembro de 2023 pela estação convencional do INMET — recorde da série histórica informada pelo instituto desde 1910.</p>
-            <div className="mt-8 overflow-hidden rounded-lg border border-border">
-              <table className="w-full text-sm">
+            <div className="mt-8 overflow-x-auto rounded-lg border border-border [-webkit-overflow-scrolling:touch]">
+              <table className="w-full min-w-[30rem] text-sm">
                 <caption className="bg-muted px-4 py-2 text-left text-xs font-semibold">Setembro de 2023 — observado × climatologia (INMET)</caption>
                 <thead><tr className="text-left text-muted-foreground"><th className="px-4 py-2 font-medium">Indicador</th><th className="px-4 py-2 font-medium">Observado</th><th className="px-4 py-2 font-medium">Média histórica</th></tr></thead>
                 <tbody>
@@ -101,18 +100,18 @@ function Casos() {
       <Section id="mar-2026" className="border-t border-border">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <div className="flex gap-2"><KindTag kind="Observação meteorológica" /><KindTag kind="Impacto documentado" /></div>
+            <div className="flex flex-wrap gap-2"><KindTag kind="Observação meteorológica" /><KindTag kind="Impacto documentado" /></div>
             <h2 className="mt-4 text-3xl font-extrabold text-forest md:text-4xl">Chuvas intensas e resposta urbana em Belo Horizonte</h2>
             <p className="mt-5 text-muted-foreground">No temporal de 6 de março de 2026, a Prefeitura informou que a Defesa Civil recebeu <strong className="text-foreground">55 solicitações</strong> no período relatado e mobilizou equipes para limpeza de vias, bocas de lobo e galerias pluviais, além de reparos urbanos.</p>
             <p className="mt-4 text-sm text-muted-foreground">As solicitações são registros de atendimento, não medidas meteorológicas.</p>
             <div className="mt-6"><SourceLink href={SRC.pbhMarco2026} /></div>
           </div>
-          <figure className="rounded-lg border border-border bg-card p-6 lg:col-span-7">
+          <figure className="min-w-0 rounded-lg border border-border bg-card p-4 sm:p-6 lg:col-span-7">
             <figcaption>
               <p className="font-bold">Chuva acumulada por regional</p>
               <p className="text-xs text-muted-foreground">Temporal de 6 de março de 2026 · em milímetros (mm)</p>
             </figcaption>
-            <div className="mt-4 h-[420px]">
+            <div className="mt-4 h-[380px] sm:h-[420px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={marco2026} layout="vertical" margin={{ left: 10, right: 40 }}>
                   <CartesianGrid horizontal={false} stroke="var(--border)" />

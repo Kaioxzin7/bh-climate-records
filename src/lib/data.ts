@@ -4,6 +4,10 @@ export const SRC = {
   ods13: "https://brasil.un.org/pt-br/sdgs/13",
   ipcc: "https://www.ipcc.ch/report/ar6/syr/",
   inmet: "https://portal.inmet.gov.br/",
+  inmetInformativo052020:
+    "https://portal.inmet.gov.br/uploads/informartivos/informativo_meteorologico_05_02_2020.pdf",
+  cbmmgVilaBernadete:
+    "https://www.em.com.br/app/noticia/gerais/2020/01/26/interna_gerais,1117123/encontrado-ultimo-corpo-dos-sete-mortos-em-soterramento-no-barreiro.shtml",
   inmetSet2023:
     "https://portal.inmet.gov.br/noticias/balan%C3%A7o-belo-horizonte-mg-teve-chuva-abaixo-e-temperaturas-acima-da-m%C3%A9dia-em-setembro-2023",
   pbhPlanoEmergencial:
@@ -24,15 +28,14 @@ export type Kind = "Observação meteorológica" | "Impacto documentado" | "Proj
 
 export const indicadores = [
   {
-    valor: "967,6",
+    valor: "935,2",
     unidade: "mm",
     titulo: "Chuva acumulada no mês",
-    descricao: "Total mensal de precipitação em Belo Horizonte registrado em janeiro de 2020, conforme o histórico do plano municipal de contingência.",
+    descricao: "Total mensal de precipitação na estação meteorológica convencional do INMET em Belo Horizonte (bairro Santo Agostinho) — maior acumulado mensal desde a abertura da estação, em 1910.",
     periodo: "Janeiro de 2020 (total mensal)",
-    instituicao: "Prefeitura de Belo Horizonte",
-    href: SRC.pbhPlanoEmergencial,
+    instituicao: "INMET — Informativo Meteorológico nº 05/2020",
+    href: SRC.inmetInformativo052020,
     kind: "Observação meteorológica" as Kind,
-    verificar: "Valor e estação meteorológica a confirmar na fonte primária (plano de contingência).",
   },
   {
     valor: "37,5",
@@ -91,8 +94,10 @@ export const fontes: Fonte[] = [
   { inst: "IPCC", titulo: "AR6 Synthesis Report: Climate Change 2023", data: "2023", href: SRC.ipcc, desc: "Painel Intergovernamental sobre Mudanças Climáticas: síntese da ciência climática mais recente." },
   { inst: "INMET", titulo: "Portal do Instituto Nacional de Meteorologia", data: "Página institucional", href: SRC.inmet, desc: "Órgão federal responsável pelas observações e dados meteorológicos oficiais do Brasil." },
   { inst: "INMET", titulo: "Balanço: Belo Horizonte (MG) teve chuva abaixo e temperaturas acima da média em setembro de 2023", data: "Outubro de 2023", href: SRC.inmetSet2023, desc: "Fonte do recorde de 37,5 °C e dos dados mensais de setembro de 2023." },
+  { inst: "INMET", titulo: "Informativo Meteorológico nº 05/2020", data: "05/02/2020", href: SRC.inmetInformativo052020, desc: "Fonte do acumulado de 935,2 mm em janeiro de 2020 na estação convencional de Belo Horizonte (Santo Agostinho), recorde mensal desde 1910; média climatológica de janeiro: 329,1 mm." },
+  { inst: "CBMMG (via Estado de Minas)", titulo: "Encontrado último corpo dos sete mortos em soterramento no Barreiro", data: "26/01/2020", href: SRC.cbmmgVilaBernadete, desc: "Balanço do Corpo de Bombeiros Militar de Minas Gerais ao encerrar as buscas na Vila Bernadete: 7 vítimas fatais." },
   { inst: "Prefeitura de Belo Horizonte", titulo: "Prefeitura executa plano emergencial para minimizar efeito das chuvas", data: "Janeiro de 2020", href: SRC.pbhPlanoEmergencial, desc: "Ações emergenciais durante as chuvas de janeiro de 2020." },
-  { inst: "Prefeitura de Belo Horizonte", titulo: "Nota à imprensa — chuvas em Belo Horizonte", data: "Janeiro de 2020", href: SRC.pbhNotaChuvas, desc: "Informações oficiais preliminares sobre o deslizamento na Vila Bernadete." },
+  { inst: "Prefeitura de Belo Horizonte", titulo: "Nota à imprensa — chuvas em Belo Horizonte", data: "Janeiro de 2020", href: SRC.pbhNotaChuvas, desc: "Informações oficiais preliminares (25/01/2020) sobre o deslizamento na Vila Bernadete; o balanço final é o do CBMMG." },
   { inst: "Prefeitura de Belo Horizonte", titulo: "Preparativos para o período chuvoso 2025–2026", data: "2025", href: SRC.pbhChuvoso, desc: "Ações municipais de preparação, monitoramento e resposta." },
   { inst: "Prefeitura de Belo Horizonte", titulo: "Força-tarefa da PBH mobiliza estrutura para limpeza de áreas afetadas por temporal", data: "Março de 2026", href: SRC.pbhMarco2026, desc: "Acumulados por regional e resposta ao temporal de 6 de março de 2026." },
   { inst: "Prefeitura de Belo Horizonte", titulo: "Refúgios climáticos", data: "Página institucional", href: SRC.pbhRefugios, desc: "Espaços públicos com hidratação, resfriamento e sombra." },
