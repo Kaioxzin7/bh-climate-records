@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CloudRain, Mountain, Thermometer, Users } from "lucide-react";
 import hero from "@/assets/hero-bh.jpg";
 import { Button } from "@/components/ui/button";
-import { KindTag, OdsBadge, Section, SourceLink, VerifyNote, meta } from "@/components/site";
+import { KindTag, OdsBadge, Section, SourceLink, meta } from "@/components/site";
 import { indicadores } from "@/lib/data";
 
 export const Route = createFileRoute("/")({
@@ -70,7 +70,6 @@ function Index() {
               <h3 className="mt-4 text-lg font-bold">{i.titulo}</h3>
               <p className="mt-2 flex-1 text-sm text-muted-foreground">{i.descricao}</p>
               <p className="mt-4 text-xs font-medium">Período: {i.periodo}</p>
-              {i.verificar && <VerifyNote>{i.verificar}</VerifyNote>}
               <div className="mt-5 border-t border-border pt-4"><SourceLink href={i.href} /></div>
             </article>
           ))}

@@ -38,7 +38,7 @@ function Casos() {
       </nav>
 
       <Section id="jan-2020">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-2 [&>*]:min-w-0">
           <div>
             <div className="flex flex-wrap gap-2"><KindTag kind="Observação meteorológica" /><KindTag kind="Impacto documentado" /></div>
             <h2 className="mt-4 text-3xl font-extrabold text-forest md:text-4xl">Janeiro de 2020: um episódio histórico de chuvas em Belo Horizonte</h2>
@@ -69,7 +69,7 @@ function Casos() {
       </Section>
 
       <Section id="set-2023" className="border-t border-border">
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-2 [&>*]:min-w-0">
           <figure className="order-last lg:order-first">
             <img src={arbor} alt="Rua arborizada com sombra em dia de sol (imagem ilustrativa)" width={1600} height={1008} loading="lazy" className="aspect-[4/3] w-full rounded-lg object-cover" />
             <figcaption className="mt-2 text-xs text-muted-foreground">Imagem ilustrativa: a arborização reduz a exposição ao calor. Não retrata Belo Horizonte.</figcaption>
@@ -98,7 +98,7 @@ function Casos() {
       </Section>
 
       <Section id="mar-2026" className="border-t border-border">
-        <div className="grid gap-12 lg:grid-cols-12">
+        <div className="grid gap-12 lg:grid-cols-12 [&>*]:min-w-0">
           <div className="lg:col-span-5">
             <div className="flex flex-wrap gap-2"><KindTag kind="Observação meteorológica" /><KindTag kind="Impacto documentado" /></div>
             <h2 className="mt-4 text-3xl font-extrabold text-forest md:text-4xl">Chuvas intensas e resposta urbana em Belo Horizonte</h2>
